@@ -17,13 +17,23 @@ The plugin is for defining namespaces and classes.
     - Object `object`
 
 ## Getting Started
-### Define classes
+### Define Backbone classes
 ```js
 Backbone.define('company.application.Model', Backbone.Model.extend());
 
 Backbone.define('company.application.Collection', Backbone.Collection.extend({
     model: company.application.Model
 }));
+```
+
+### Define custom class
+```js
+var Class = Backbone.define('company.application.Class', function () {
+    this.instanceProperty = 'instanceProperty';
+});
+
+Class.staticProperty = 'staticProperty';
+Class.prototype.prototypeProperty = 'prototypeProperty';
 ```
 
 ## Changelog
