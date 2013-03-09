@@ -1,7 +1,7 @@
 ﻿{
     "name": "backbone.namespaces",
     "title": "Backbone.Namespaces",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "The plugin is for defining namespaces and classes.",
 
     "keywords": [

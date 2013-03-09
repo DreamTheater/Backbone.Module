@@ -37,6 +37,9 @@ Class.prototype.prototypeProperty = 'prototypeProperty';
 ```
 
 ## Changelog
+### 0.1.2
+  - When absent argument `object` method `define` just returns current value
+
 ### 0.1.1
   - New usage method
 

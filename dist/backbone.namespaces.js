@@ -1,5 +1,5 @@
 /*!
- * Backbone.Namespaces v0.1.1
+ * Backbone.Namespaces v0.1.2
  * https://github.com/DreamTheater/Backbone.Namespaces
  *
  * Copyright (c) 2013 Dmytro Nemoga
@@ -21,7 +21,7 @@
             context = proxy;
         });
 
-        context = context[className] = object;
+        context = context[className] = _.isUndefined(object) ? context[className] : object;
 
         return context;
     };

@@ -14,7 +14,7 @@
             context = proxy;
         });
 
-        context = context[className] = object;
+        context = context[className] = _.isUndefined(object) ? context[className] : object;
 
         return context;
     };
