@@ -8,6 +8,8 @@
         "backbone",
         "plugin",
         "define",
+        "module",
+        "package",
         "namespace",
         "object",
         "class"
