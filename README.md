@@ -1,8 +1,8 @@
-[lnk]: https://travis-ci.org/DreamTheater/Backbone.Namespaces
-[img]: https://secure.travis-ci.org/DreamTheater/Backbone.Namespaces.png
+[lnk]: https://travis-ci.org/DreamTheater/Backbone.Modules
+[img]: https://secure.travis-ci.org/DreamTheater/Backbone.Modules.png
 
-# Backbone.Namespaces [![Build Status][img]][lnk]
-The plugin is for defining namespaces and classes.
+# Backbone.Modules [![Build Status][img]][lnk]
+The plugin is for defining modules.
 
 **Dependencies:**
 

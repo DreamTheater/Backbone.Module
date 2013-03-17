@@ -11,17 +11,17 @@ $(function () {
     // TESTS //
     ///////////
 
-    test('define namespaces', function () {
-        Backbone.define('Backbone.TestSuite.Model', Backbone.Model);
-        Backbone.define('Backbone.TestSuite.Collection', Backbone.Collection);
-        Backbone.define('Backbone.TestSuite.Router', Backbone.Router);
-        Backbone.define('Backbone.TestSuite.History', Backbone.History);
-        Backbone.define('Backbone.TestSuite.View', Backbone.View);
+    test('define modules', function () {
+        Backbone.define('Backbone.TestPackage.Model', Backbone.Model);
+        Backbone.define('Backbone.TestPackage.Collection', Backbone.Collection);
+        Backbone.define('Backbone.TestPackage.Router', Backbone.Router);
+        Backbone.define('Backbone.TestPackage.History', Backbone.History);
+        Backbone.define('Backbone.TestPackage.View', Backbone.View);
 
-        strictEqual(Backbone.define('Backbone.TestSuite.Model'), Backbone.Model);
-        strictEqual(Backbone.define('Backbone.TestSuite.Collection'), Backbone.Collection);
-        strictEqual(Backbone.define('Backbone.TestSuite.Router'), Backbone.Router);
-        strictEqual(Backbone.define('Backbone.TestSuite.History'), Backbone.History);
-        strictEqual(Backbone.define('Backbone.TestSuite.View'), Backbone.View);
+        strictEqual(Backbone.define('Backbone.TestPackage.Model'), Backbone.Model);
+        strictEqual(Backbone.define('Backbone.TestPackage.Collection'), Backbone.Collection);
+        strictEqual(Backbone.define('Backbone.TestPackage.Router'), Backbone.Router);
+        strictEqual(Backbone.define('Backbone.TestPackage.History'), Backbone.History);
+        strictEqual(Backbone.define('Backbone.TestPackage.View'), Backbone.View);
     });
 });

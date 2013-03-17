@@ -1,6 +1,6 @@
 /*!
- * Backbone.Namespaces v0.1.2
- * https://github.com/DreamTheater/Backbone.Namespaces
+ * Backbone.Modules v0.1.2
+ * https://github.com/DreamTheater/Backbone.Modules
  *
  * Copyright (c) 2013 Dmytro Nemoga
  * Released under the MIT license
@@ -8,6 +8,9 @@
 (function () {
     'use strict';
 
+    /**
+     * @function
+     */
     Backbone.define = function (namespace, object) {
         var context = window, names = namespace.split('.'), className = names.pop();
 

@@ -1,22 +1,24 @@
 ﻿{
-    "name": "backbone.namespaces",
-    "title": "Backbone.Namespaces",
+    "name": "backbone.modules",
+    "title": "Backbone.Modules",
     "version": "0.1.2",
-    "description": "The plugin is for defining namespaces and classes.",
+    "description": "The plugin is for defining modules.",
 
     "keywords": [
         "backbone",
         "plugin",
         "define",
+        "module",
+        "package",
         "namespace",
         "object",
         "class"
     ],
 
-    "homepage": "https://github.com/DreamTheater/Backbone.Namespaces",
+    "homepage": "https://github.com/DreamTheater/Backbone.Modules",
 
     "bugs": {
-        "url": "https://github.com/DreamTheater/Backbone.Namespaces/issues"
+        "url": "https://github.com/DreamTheater/Backbone.Modules/issues"
     },
 
     "author": {
@@ -26,12 +28,12 @@
 
     "repository": {
         "type": "git",
-        "url": "https://github.com/DreamTheater/Backbone.Namespaces.git"
+        "url": "https://github.com/DreamTheater/Backbone.Modules.git"
     },
 
     "license": {
         "type": "MIT",
-        "url": "https://github.com/DreamTheater/Backbone.Namespaces/blob/master/LICENSE"
+        "url": "https://github.com/DreamTheater/Backbone.Modules/blob/master/LICENSE"
     },
 
     "scripts": {
