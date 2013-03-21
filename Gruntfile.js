@@ -38,7 +38,10 @@ module.exports = function (grunt) {
             },
 
             dist: {
-                src: 'src/backbone/define.js',
+                src: [
+                    'src/backbone/define.js'
+                ],
+
                 dest: 'dist/<%= pkg.name %>.js'
             }
         },

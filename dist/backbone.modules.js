@@ -1,5 +1,5 @@
-/*!
- * Backbone.Modules v0.1.2
+/**
+ * Backbone.Modules v0.1.3
  * https://github.com/DreamTheater/Backbone.Modules
  *
  * Copyright (c) 2013 Dmytro Nemoga
@@ -11,7 +11,7 @@
     /**
      * @function
      */
-    Backbone.define = function (namespace, object) {
+    Backbone.define = function (namespace, callback) {
         var context = window, names = namespace.split('.'), className = names.pop();
 
         _.each(names, function (name) {
@@ -24,7 +24,7 @@
             context = proxy;
         });
 
-        context = context[className] = _.isUndefined(object) ? context[className] : object;
+        context = context[className] = _.isFunction(callback) ? callback() : context[className];
 
         return context;
     };
