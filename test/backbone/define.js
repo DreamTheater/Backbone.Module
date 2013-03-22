@@ -11,7 +11,7 @@ $(function () {
     // TESTS //
     ///////////
 
-    test('define modules', function () {
+    test('modules definition', function () {
         Backbone.define('Backbone.TestPackage.Model', function () {
             return Backbone.Model;
         });
