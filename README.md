@@ -12,11 +12,22 @@ The plugin is for defining modules.
 ## Reference API
 ### Backbone
 #### Static members
-  - Function `define(namespace, callback)`
-    - String `namespace`
-    - Function `callback`
+  - Function `define(namespace, callback)` - Defines a cascade of objects according to dot separated namespace.
+    - String `namespace` - Dot separated namespace (e. g. `"foo.bar.baz"`).
+    - Function `callback` - Function that returns a value which will be assigned to a latest object in namespace.
 
 ## Getting Started
+### Define simple objects
+```js
+Backbone.define('company.application.String', 'Hello, World!');
+
+Backbone.define('company.application.Object', {
+    foo: 'foo',
+    bar: 'bar',
+    baz: 'baz'
+});
+```
+
 ### Define Backbone classes
 ```js
 Backbone.define('company.application.Model', function () {
