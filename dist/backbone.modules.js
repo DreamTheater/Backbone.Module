@@ -1,5 +1,5 @@
 /**
- * Backbone.Modules v0.1.3
+ * Backbone.Modules v0.1.4
  * https://github.com/DreamTheater/Backbone.Modules
  *
  * Copyright (c) 2013 Dmytro Nemoga
@@ -25,6 +25,9 @@
         });
 
         context = context[className] = _.isFunction(callback) ? callback() : context[className];
+
+        context.namespace = namespace;
+        context.className = className;
 
         return context;
     };

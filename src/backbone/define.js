@@ -19,6 +19,9 @@
 
         context = context[className] = _.isFunction(callback) ? callback() : context[className];
 
+        context.namespace = namespace;
+        context.className = className;
+
         return context;
     };
 }());
