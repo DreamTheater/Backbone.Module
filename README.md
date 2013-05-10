@@ -1,7 +1,10 @@
-[lnk]: https://travis-ci.org/DreamTheater/Backbone.Modules
-[img]: https://secure.travis-ci.org/DreamTheater/Backbone.Modules.png
+[npm-badge]: https://badge.fury.io/js/backbone.modules.png
+[npm-link]: https://badge.fury.io/js/backbone.modules
 
-# Backbone.Modules [![Build Status][img]][lnk]
+[travis-badge]: https://secure.travis-ci.org/DreamTheater/Backbone.Modules.png
+[travis-link]: https://travis-ci.org/DreamTheater/Backbone.Modules
+
+# Backbone.Modules [![NPM Version][npm-badge]][npm-link] [![Build Status][travis-badge]][travis-link]
 The plugin is for defining modules.
 
 **Dependencies:**
