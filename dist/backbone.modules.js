@@ -12,23 +12,23 @@
      * @function
      */
     Backbone.define = function (namespace, callback) {
-        var context = window, names = namespace.split('.'), className = names.pop();
+        var object = window, properties = namespace.split('.'), className = properties.pop();
 
-        _.each(names, function (name) {
-            var proxy = context[name];
+        _.each(properties, function (property) {
+            var proxyObject = object[property];
 
-            if (!proxy) {
-                proxy = context[name] = {};
+            if (!proxyObject) {
+                proxyObject = object[property] = {};
             }
 
-            context = proxy;
+            object = proxyObject;
         });
 
-        context = context[className] = _.isFunction(callback) ? callback() : context[className];
+        object = object[className] = _.isFunction(callback) ? callback() : object[className];
 
-        context.namespace = namespace;
-        context.className = className;
+        object.namespace = namespace;
+        object.className = className;
 
-        return context;
+        return object;
     };
 }());
