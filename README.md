@@ -12,13 +12,6 @@ The plugin is for defining modules.
   - [Backbone](https://github.com/documentcloud/backbone) `>= 1.0.0`
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.4.4`
 
-## Reference API
-### Backbone
-#### Static members
-  - Function `define(namespace, callback)` - Defines a cascade of objects according to dot separated namespace.
-    - String `namespace` - Dot separated namespace (e. g. `"foo.bar.baz"`).
-    - Function `callback` - Function that returns a value which will be assigned to a latest object in namespace.
-
 ## Getting Started
 ### Define simple objects
 ```js
