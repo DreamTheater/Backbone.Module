@@ -8,9 +8,6 @@
 (function () {
     'use strict';
 
-    /**
-     * @function
-     */
     Backbone.define = function (namespace, callback) {
         var object = window, properties = namespace.split('.'), className = properties.pop();
 
