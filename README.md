@@ -5,7 +5,7 @@
 [travis-link]: https://travis-ci.org/DreamTheater/Backbone.Modules
 
 # Backbone.Modules [![NPM Version][npm-badge]][npm-link] [![Build Status][travis-badge]][travis-link]
-The plugin is for defining modules.
+The plugin is for defining modules. It will help you to define modules with long namespaces in global scope.
 
 **Dependencies:**
 
@@ -13,21 +13,27 @@ The plugin is for defining modules.
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.4.4`
 
 ## Getting Started
+Backbone.Modules is a simple helper that automatically resolves creation nested contexts, avoiding errors.
+
 ### Define simple objects
 ```js
-Backbone.define('company.application.String', 'Hello, World!');
+Backbone.define('company.application.String', function () {
+    return 'Hello, World!';
+});
 
-Backbone.define('company.application.Object', {
-    foo: 'foo',
-    bar: 'bar',
-    baz: 'baz'
+Backbone.define('company.application.Object', function () {
+    return {
+        foo: 'foo',
+        bar: 'bar',
+        baz: 'baz'
+    };
 });
 ```
 
 ### Define Backbone classes
 ```js
 Backbone.define('company.application.Model', function () {
-    return Backbone.Model.extend();
+    return Backbone.Model;
 });
 
 Backbone.define('company.application.Collection', function () {
@@ -44,9 +50,13 @@ Backbone.define('company.application.Class', function () {
         this.instanceProperty = 'instanceProperty';
     };
 
-    Class.staticProperty = 'staticProperty';
+    _.extend(Class, {
+        staticProperty: 'staticProperty'
+    });
 
-    Class.prototype.prototypeProperty = 'prototypeProperty';
+    _.extend(Class.prototype, {
+        prototypeProperty: 'prototypeProperty'
+    });
 
     return Class;
 });

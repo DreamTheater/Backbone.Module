@@ -34,32 +34,50 @@ $(function () {
     ///////////
 
     test('definition modules', function () {
-        strictEqual(Backbone.TestPackage.Model, Backbone.Model);
-        strictEqual(Backbone.TestPackage.Collection, Backbone.Collection);
-        strictEqual(Backbone.TestPackage.View, Backbone.View);
-        strictEqual(Backbone.TestPackage.Router, Backbone.Router);
-        strictEqual(Backbone.TestPackage.History, Backbone.History);
+        var Model = Backbone.TestPackage.Model,
+            Collection = Backbone.TestPackage.Collection,
+            View = Backbone.TestPackage.View,
+            Router = Backbone.TestPackage.Router,
+            History = Backbone.TestPackage.History;
+
+        strictEqual(Model, Backbone.Model);
+        strictEqual(Collection, Backbone.Collection);
+        strictEqual(View, Backbone.View);
+        strictEqual(Router, Backbone.Router);
+        strictEqual(History, Backbone.History);
     });
 
     test('resolving namespaces', function () {
-        strictEqual(Backbone.define('Backbone.TestPackage.Model'), Backbone.Model);
-        strictEqual(Backbone.define('Backbone.TestPackage.Collection'), Backbone.Collection);
-        strictEqual(Backbone.define('Backbone.TestPackage.View'), Backbone.View);
-        strictEqual(Backbone.define('Backbone.TestPackage.Router'), Backbone.Router);
-        strictEqual(Backbone.define('Backbone.TestPackage.History'), Backbone.History);
+        var Model = Backbone.define('Backbone.TestPackage.Model'),
+            Collection = Backbone.define('Backbone.TestPackage.Collection'),
+            View = Backbone.define('Backbone.TestPackage.View'),
+            Router = Backbone.define('Backbone.TestPackage.Router'),
+            History = Backbone.define('Backbone.TestPackage.History');
+
+        strictEqual(Model, Backbone.Model);
+        strictEqual(Collection, Backbone.Collection);
+        strictEqual(View, Backbone.View);
+        strictEqual(Router, Backbone.Router);
+        strictEqual(History, Backbone.History);
     });
 
     test('credits modules', function () {
-        strictEqual(Backbone.TestPackage.Model.namespace, 'Backbone.TestPackage.Model');
-        strictEqual(Backbone.TestPackage.Collection.namespace, 'Backbone.TestPackage.Collection');
-        strictEqual(Backbone.TestPackage.View.namespace, 'Backbone.TestPackage.View');
-        strictEqual(Backbone.TestPackage.Router.namespace, 'Backbone.TestPackage.Router');
-        strictEqual(Backbone.TestPackage.History.namespace, 'Backbone.TestPackage.History');
+        var Model = Backbone.TestPackage.Model,
+            Collection = Backbone.TestPackage.Collection,
+            View = Backbone.TestPackage.View,
+            Router = Backbone.TestPackage.Router,
+            History = Backbone.TestPackage.History;
 
-        strictEqual(Backbone.TestPackage.Model.className, 'Model');
-        strictEqual(Backbone.TestPackage.Collection.className, 'Collection');
-        strictEqual(Backbone.TestPackage.View.className, 'View');
-        strictEqual(Backbone.TestPackage.Router.className, 'Router');
-        strictEqual(Backbone.TestPackage.History.className, 'History');
+        strictEqual(Model.namespace, 'Backbone.TestPackage.Model');
+        strictEqual(Collection.namespace, 'Backbone.TestPackage.Collection');
+        strictEqual(View.namespace, 'Backbone.TestPackage.View');
+        strictEqual(Router.namespace, 'Backbone.TestPackage.Router');
+        strictEqual(History.namespace, 'Backbone.TestPackage.History');
+
+        strictEqual(Model.className, 'Model');
+        strictEqual(Collection.className, 'Collection');
+        strictEqual(View.className, 'View');
+        strictEqual(Router.className, 'Router');
+        strictEqual(History.className, 'History');
     });
 });
