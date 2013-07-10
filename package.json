@@ -2,7 +2,7 @@
     "name": "backbone.modules",
     "title": "Backbone.Modules",
     "version": "0.1.4",
-    "description": "The plugin is for defining modules. It will help you to define modules with long namespaces in global scope.",
+    "description": "Utility for a modules definition.",
 
     "keywords": [
         "backbone",

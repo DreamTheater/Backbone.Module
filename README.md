@@ -5,7 +5,7 @@
 [travis-link]: https://travis-ci.org/DreamTheater/Backbone.Modules
 
 # Backbone.Modules [![NPM Version][npm-badge]][npm-link] [![Build Status][travis-badge]][travis-link]
-The plugin is for defining modules. It will help you to define modules with long namespaces in global scope.
+Utility for a modules definition.
 
 **Dependencies:**
 
@@ -13,7 +13,7 @@ The plugin is for defining modules. It will help you to define modules with long
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.5.1`
 
 ## Getting Started
-Backbone.Modules is a simple helper that automatically resolves creation nested contexts, avoiding errors.
+The function `Backbone.define` is a simple helper that automatically resolves creation nested contexts, avoiding errors.
 
 ### Define simple objects
 ```js
