@@ -10,7 +10,7 @@ The plugin is for defining modules. It will help you to define modules with long
 **Dependencies:**
 
   - [Backbone](https://github.com/documentcloud/backbone) `>= 1.0.0`
-  - [Underscore](https://github.com/documentcloud/underscore) `>= 1.4.4`
+  - [Underscore](https://github.com/documentcloud/underscore) `>= 1.5.1`
 
 ## Getting Started
 Backbone.Modules is a simple helper that automatically resolves creation nested contexts, avoiding errors.
