@@ -14,10 +14,11 @@
             object = proxyObject;
         });
 
-        object = object[className] = _.isFunction(callback) ? callback() : object[className];
+        if (_.isFunction(callback)) {
+            object[className] = callback.call(object);
+        }
 
-        object.namespace = namespace;
-        object.className = className;
+        object = object[className];
 
         return object;
     };

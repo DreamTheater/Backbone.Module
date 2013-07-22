@@ -61,24 +61,4 @@ $(function () {
         strictEqual(Router, Backbone.Router);
         strictEqual(History, Backbone.History);
     });
-
-    test('credits modules', function () {
-        var Model = Backbone.TestPackage.Model,
-            Collection = Backbone.TestPackage.Collection,
-            View = Backbone.TestPackage.View,
-            Router = Backbone.TestPackage.Router,
-            History = Backbone.TestPackage.History;
-
-        strictEqual(Model.namespace, 'Backbone.TestPackage.Model');
-        strictEqual(Collection.namespace, 'Backbone.TestPackage.Collection');
-        strictEqual(View.namespace, 'Backbone.TestPackage.View');
-        strictEqual(Router.namespace, 'Backbone.TestPackage.Router');
-        strictEqual(History.namespace, 'Backbone.TestPackage.History');
-
-        strictEqual(Model.className, 'Model');
-        strictEqual(Collection.className, 'Collection');
-        strictEqual(View.className, 'View');
-        strictEqual(Router.className, 'Router');
-        strictEqual(History.className, 'History');
-    });
 });

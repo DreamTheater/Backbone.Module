@@ -63,6 +63,9 @@ Backbone.define('company.application.Class', function () {
 ```
 
 ## Changelog
+### 0.1.5
+  - Revert 0.1.4 changes
+
 ### 0.1.4
   - Modules have static properties `namespace` and `className`
 

@@ -1,5 +1,5 @@
 /**
- * Backbone.Modules v0.1.4
+ * Backbone.Modules v0.1.5
  * https://github.com/DreamTheater/Backbone.Modules
  *
  * Copyright (c) 2013 Dmytro Nemoga
@@ -21,10 +21,11 @@
             object = proxyObject;
         });
 
-        object = object[className] = _.isFunction(callback) ? callback() : object[className];
+        if (_.isFunction(callback)) {
+            object[className] = callback.call(object);
+        }
 
-        object.namespace = namespace;
-        object.className = className;
+        object = object[className];
 
         return object;
     };
