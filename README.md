@@ -4,7 +4,19 @@
 [travis-badge]: https://secure.travis-ci.org/DreamTheater/Backbone.Modules.png
 [travis-link]: https://travis-ci.org/DreamTheater/Backbone.Modules
 
-# Backbone.Modules [![NPM Version][npm-badge]][npm-link] [![Build Status][travis-badge]][travis-link]
+[coveralls-badge]: https://coveralls.io/repos/DreamTheater/Backbone.Modules/badge.png
+[coveralls-link]: https://coveralls.io/r/DreamTheater/Backbone.Modules
+
+[gemnasium-badge]: https://gemnasium.com/DreamTheater/Backbone.Modules.png
+[gemnasium-link]: https://gemnasium.com/DreamTheater/Backbone.Modules
+
+# Backbone.Modules
+
+[![NPM Version][npm-badge]][npm-link]
+[![Build Status][travis-badge]][travis-link]
+[![Coverage Status][coveralls-badge]][coveralls-link]
+[![Dependency Status][gemnasium-badge]][gemnasium-link]
+
 Utility for a modules definition.
 
 **Dependencies:**

@@ -14,11 +14,7 @@
             object = proxyObject;
         });
 
-        if (_.isFunction(callback)) {
-            object[className] = callback.call(object);
-        }
-
-        object = object[className];
+        object = object[className] = _.isFunction(callback) ? callback.call(object) : callback;
 
         return object;
     };
