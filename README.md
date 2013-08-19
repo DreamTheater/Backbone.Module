@@ -8,7 +8,7 @@
 [coveralls-link]: https://coveralls.io/r/DreamTheater/Backbone.Modules
 
 [gemnasium-badge]: https://gemnasium.com/DreamTheater/Backbone.Modules.png
-[gemnasium-link]: https://gemnasium.com/DreamTheater/Backbone.Modules
+[gemnasium-link]: https://gemnasium.com/DreamTheater/Backbone.Modules#tab-dev_dependencies
 
 # Backbone.Modules
 
@@ -17,7 +17,7 @@
 [![Coverage Status][coveralls-badge]][coveralls-link]
 [![Dependency Status][gemnasium-badge]][gemnasium-link]
 
-Utility for a modules definition.
+Utility for modules definition.
 
 **Dependencies:**
 
@@ -25,52 +25,33 @@ Utility for a modules definition.
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.5.1`
 
 ## Getting Started
-The function `Backbone.define` is a simple helper that automatically resolves creation nested contexts, avoiding errors.
+`Backbone.define()` is a simple helper that automatically resolves creation of nested scopes.
 
-### Define simple objects
+### Define simple object
+You can easy define any variables, like this:
 ```js
-Backbone.define('company.application.String', function () {
-    return 'Hello, World!';
-});
-
-Backbone.define('company.application.Object', function () {
-    return {
-        foo: 'foo',
-        bar: 'bar',
-        baz: 'baz'
-    };
+Backbone.define('foo.bar.object', { foo: 'bar' });
+```
+```js
+Backbone.define('foo.bar.object', function () {
+    return { foo: 'bar' };
 });
 ```
 
-### Define Backbone classes
+Both of these statements are equal. They will create the object in global scope: `window.foo.bar.object`.
+
+### Define Backbone's classes
+A little example how `Backbone.Modules` can be used together with Backbone's classes:
 ```js
-Backbone.define('company.application.Model', function () {
+Backbone.define('org.app.Model', function () {
     return Backbone.Model;
 });
-
-Backbone.define('company.application.Collection', function () {
-    return Backbone.Collection.extend({
-        model: company.application.Model
-    });
-});
 ```
-
-### Define custom class
 ```js
-Backbone.define('company.application.Class', function () {
-    var Class = function () {
-        this.instanceProperty = 'instanceProperty';
-    };
-
-    _.extend(Class, {
-        staticProperty: 'staticProperty'
+Backbone.define('org.app.Collection', function () {
+    return Backbone.Collection.extend({
+        model: org.app.Model
     });
-
-    _.extend(Class.prototype, {
-        prototypeProperty: 'prototypeProperty'
-    });
-
-    return Class;
 });
 ```
 

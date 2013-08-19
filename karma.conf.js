@@ -30,11 +30,13 @@ module.exports = function (config) {
 
         coverageReporter: {
             type: 'html',
-            dir: 'coverage_reports'
+            dir: 'coverage'
         },
+
+        reportSlowerThan: 75,
 
         browsers: ['Firefox'],
 
-        reportSlowerThan: 75
+        autoWatch: true
     });
 };

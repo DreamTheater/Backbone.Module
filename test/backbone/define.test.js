@@ -1,31 +1,29 @@
-(function () {
+(function (expect) {
     'use strict';
 
-    ////////////////////
-
-    var expect = chai.expect;
-
-    ////////////////////
-
     describe('Backbone', function () {
-        describe('#define()', function () {
-            it('should define an object', function () {
-                var Object = Backbone.define('company.application.Object', {
-                    foo: 'foo',
-                    bar: 'bar',
-                    baz: 'baz'
-                });
+        describe('#define(namespace, object)', function () {
+            it('should define the object', function () {
+                Backbone.define('foo.bar.object', { foo: 'bar' });
 
-                expect(Object).to.equal(company.application.Object);
+                expect(foo.bar).to.deep.equal({
+                    object: { foo: 'bar' }
+                });
             });
 
-            it('should define a function', function () {
-                var Function = Backbone.define('company.application.Function', function () {
-                    return sinon.spy();
-                });
+            it('should extend the object', function () {
+                Backbone.define('foo.bar.baz.qux.object', { baz: 'qux' });
 
-                expect(Function).to.equal(company.application.Function);
+                expect(foo.bar).to.deep.equal({
+                    object: { foo: 'bar' },
+
+                    baz: {
+                        qux: {
+                            object: { baz: 'qux' }
+                        }
+                    }
+                });
             });
         });
     });
-}());
+}(chai.expect));
