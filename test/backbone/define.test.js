@@ -2,27 +2,48 @@
     'use strict';
 
     describe('Backbone', function () {
-        describe('#define(namespace, object)', function () {
-            it('should define an object', function () {
-                Backbone.define('foo.bar.object', { foo: 'bar' });
 
-                expect(foo.bar).to.deep.equal({
-                    object: { foo: 'bar' }
-                });
+        ////////////////////
+
+        var object;
+
+        ////////////////////
+
+//        before(function () {
+//
+//        });
+
+//        beforeEach(function () {
+//
+//        });
+
+//        afterEach(function () {
+//
+//        });
+
+//        after(function () {
+//
+//        });
+
+        ////////////////////
+
+        describe('#define(namespace, object)', function () {
+            it('should define object', function () {
+                object = Backbone.define('foo.bar', {});
+
+                expect(object).to.equal(foo.bar);
             });
 
-            it('should extend an object', function () {
-                Backbone.define('foo.bar.baz.qux.object', { baz: 'qux' });
+            it('should extend object', function () {
+                object = Backbone.define('foo.bar.baz.qux', 'Hello, World!');
 
-                expect(foo.bar).to.deep.equal({
-                    object: { foo: 'bar' },
+                expect(object).to.equal(foo.bar.baz.qux).and.equals('Hello, World!');
+            });
 
-                    baz: {
-                        qux: {
-                            object: { baz: 'qux' }
-                        }
-                    }
-                });
+            it('should override object', function () {
+                object = Backbone.define('foo.bar.baz.qux', 'Goodbye, World!');
+
+                expect(object).to.equal(foo.bar.baz.qux).and.equals('Goodbye, World!');
             });
         });
     });
