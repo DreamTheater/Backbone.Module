@@ -16,10 +16,10 @@ module.exports = function (config) {
             'lib/backbone/backbone.js',
 
             // Sources
-            'src/backbone/define.js',
+            'src/backbone/module.js',
 
             // Tests
-            'test/backbone/define.test.js'
+            'test/backbone/module.test.js'
         ],
 
         preprocessors: {
