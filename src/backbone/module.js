@@ -9,10 +9,10 @@
     } else {
         factory(window);
     }
-}(function (root) {
+}(function (environment) {
     'use strict';
 
-    var _ = root._, Backbone = root.Backbone;
+    var _ = environment._, Backbone = environment.Backbone;
 
     ////////////////////
 
