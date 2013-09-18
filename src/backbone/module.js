@@ -19,20 +19,20 @@
     var Module = Backbone.Module = function (namespace, callback) {
         var object = typeof exports !== 'undefined' ? global : window,
 
-            properties = namespace.split('.'),
-            destination = properties.pop();
+            tokens = namespace.split('.'),
+            container = tokens.pop();
 
-        _.each(properties, function (property) {
-            var proxyObject = object[property];
+        _.each(tokens, function (token) {
+            var context = object[token];
 
-            if (!proxyObject) {
-                proxyObject = object[property] = {};
+            if (!context) {
+                context = object[token] = {};
             }
 
-            object = proxyObject;
+            object = context;
         });
 
-        object = object[destination] = _.isFunction(callback) ? callback.call(object) : callback;
+        object = object[container] = _.isFunction(callback) ? callback.call(object) : callback;
 
         return object;
     };

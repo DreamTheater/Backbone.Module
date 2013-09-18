@@ -2,15 +2,14 @@
     'use strict';
 
     if (typeof exports !== 'undefined') {
-        require('../../index.js');
 
-        module.exports = factory({
-            _: require('underscore'),
-            Backbone: require('backbone'),
+        ////////////////////
 
-            chai: require('chai'),
-            sinon: require('sinon')
-        });
+        var environment = require('../environment.js');
+
+        ////////////////////
+
+        module.exports = factory(environment);
     } else {
         factory(window);
     }
@@ -36,21 +35,21 @@
 
         ////////////////////
 
-        //        before(function () {
+        // before(function () {
         //
-        //        });
+        // });
 
-        //        beforeEach(function () {
+        // beforeEach(function () {
         //
-        //        });
+        // });
 
-        //        afterEach(function () {
+        // afterEach(function () {
         //
-        //        });
+        // });
 
-        //        after(function () {
+        // after(function () {
         //
-        //        });
+        // });
 
         ////////////////////
 
