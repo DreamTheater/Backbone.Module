@@ -1,44 +1,42 @@
 (function (factory) {
     'use strict';
 
-    if (typeof exports !== 'undefined') {
-        module.exports = factory({
-            _: require('underscore'),
-            Backbone: require('backbone')
-        });
-    } else {
-        factory(window);
-    }
-}(function (environment) {
+    var isNode = typeof module === 'object' && typeof exports === 'object';
+
+    ////////////////////
+
+    var root = isNode ? {
+        _: require('underscore'),
+        Backbone: require('backbone')
+    } : window;
+
+    ////////////////////
+
+    (isNode ? exports : Backbone).Module = factory(root, isNode);
+
+}(function (root) {
     'use strict';
 
-    var _ = environment._, Backbone = environment.Backbone;
+    var _ = root._, Backbone = root.Backbone;
 
     ////////////////////
 
     var Module = Backbone.Module = function (namespace, callback) {
-
-        ////////////////////
-
-        var isNode = typeof exports !== 'undefined';
-
-        ////////////////////
-
-        var object = isNode ? global : window, tokens = namespace.split('.'), main = tokens.pop();
+        var scope = window, tokens = namespace.split('.'), main = tokens.pop();
 
         _.each(tokens, function (token) {
-            var context = object[token];
+            var layer = scope[token];
 
-            if (!context) {
-                context = object[token] = {};
+            if (!layer) {
+                layer = scope[token] = {};
             }
 
-            object = context;
+            scope = layer;
         });
 
-        object = object[main] = _.isFunction(callback) ? callback.call(object) : callback;
+        scope = scope[main] = _.isFunction(callback) ? callback.call(scope) : callback;
 
-        return object;
+        return scope;
     };
 
     return Module;

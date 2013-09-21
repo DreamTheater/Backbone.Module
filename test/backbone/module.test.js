@@ -1,25 +1,23 @@
 (function (factory) {
     'use strict';
 
-    if (typeof exports !== 'undefined') {
+    var isNode = typeof module === 'object' && typeof exports === 'object';
 
-        ////////////////////
+    ////////////////////
 
-        var environment = require('../environment.js');
+    var root = isNode ? require('../environment.js') : window;
 
-        ////////////////////
+    ////////////////////
 
-        module.exports = factory(environment);
-    } else {
-        factory(window);
-    }
-}(function (environment) {
+    factory(root, isNode);
+
+}(function (root, isNode) {
     'use strict';
 
-    var _ = environment._, Backbone = environment.Backbone,
+    var _ = root._, Backbone = root.Backbone,
 
-        chai = environment.chai,
-        sinon = environment.sinon;
+        chai = root.chai,
+        sinon = root.sinon;
 
     ////////////////////
 
@@ -27,7 +25,7 @@
 
     ////////////////////
 
-    return describe('Backbone', function () {
+    describe('Backbone', function () {
 
         ////////////////////
 
@@ -57,19 +55,19 @@
             it('should define object', function () {
                 object = Backbone.Module('foo.bar', {});
 
-                expect(object).to.equal(foo.bar);
+                expect(object).to.equal(window.foo.bar);
             });
 
             it('should extend object', function () {
                 object = Backbone.Module('foo.bar.baz.qux', 'Hello, World!');
 
-                expect(object).to.equal(foo.bar.baz.qux).and.equals('Hello, World!');
+                expect(object).to.equal(window.foo.bar.baz.qux).and.equals('Hello, World!');
             });
 
             it('should override object', function () {
                 object = Backbone.Module('foo.bar.baz.qux', 'Goodbye, World!');
 
-                expect(object).to.equal(foo.bar.baz.qux).and.equals('Goodbye, World!');
+                expect(object).to.equal(window.foo.bar.baz.qux).and.equals('Goodbye, World!');
             });
         });
     });

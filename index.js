@@ -1,3 +1,1 @@
-module.exports = {
-    Module: require('./src/backbone/module.js')
-};
+module.exports = require('./dist/backbone.module.js');
