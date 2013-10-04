@@ -13,7 +13,7 @@
 [![Build Status][travis-badge]][travis-link]
 [![Dependency Status][gemnasium-badge]][gemnasium-link]
 
-Utility for definition modules in the global scope.
+The utility which helps you define modules in the global scope.
 
 **Dependencies:**
 
@@ -21,7 +21,7 @@ Utility for definition modules in the global scope.
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.5.2`
 
 ## Getting Started
-`Backbone.Module()` is a simple helper that automatically resolves creation of nested scopes.
+`Backbone.Module` is a simple helper that automatically resolves creation of nested scopes.
 
 ### Define simple object
 You can easy define any variables, like this:
@@ -34,7 +34,7 @@ Backbone.Module('foo.bar.object', function () {
 });
 ```
 
-Both of these statements are equal. They will create the object in global scope: `window.foo.bar.object`.
+Both of these statements are equal. They will create the object in the global scope: `window.foo.bar.object`.
 
 ### Define Backbone's classes
 A little example how `Backbone.Modules` can be used together with Backbone's classes:
