@@ -1,8 +1,8 @@
 {
     "name": "backbone.module",
     "title": "Backbone.Module",
-    "version": "0.1.8",
-    "description": "The utility which helps you define modules in the global scope.",
+    "version": "0.2.0",
+    "description": "Simple module definition for Backbone projects.",
 
     "keywords": [
         "backbone",
@@ -42,12 +42,12 @@
     },
 
     "dependencies": {
-        "backbone": "~1.0.0",
+        "backbone": "~1.1.0",
         "underscore": "~1.5.2"
     },
 
     "devDependencies": {
-        "chai": "~1.8.0",
+        "chai": "~1.8.1",
         "grunt": "~0.4.1",
         "grunt-cli": "~0.1.9",
         "grunt-contrib-concat": "~0.3.0",
