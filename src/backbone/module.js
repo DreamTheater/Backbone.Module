@@ -21,23 +21,44 @@
 
     ////////////////////
 
-    var Module = Backbone.Module = function (namespace, callback) {
-        var scope = window, packageNames = namespace.split('.'), className = packageNames.pop();
+    var Module = Backbone.Module = function (name, callback) {
 
-        _.each(packageNames, function (packageName) {
-            var layer = scope[packageName];
+        ////////////////////
 
-            if (!layer) {
-                layer = scope[packageName] = {};
+        if (!(this instanceof Module)) {
+            return new Module(name, callback);
+        }
+
+        ////////////////////
+
+        Module.modules[name] = _.extend(this, { name: name, callback: callback });
+    };
+
+    _.extend(Module, {
+        modules: {}
+    }, {
+        define: function (name, callback) {
+            return new Module(name, callback);
+        },
+
+        require: function (name) {
+            var module = Module.modules[name];
+
+            if (!module) {
+                throw 'Module "' + name + '" not found';
             }
 
-            scope = layer;
-        });
+            return module.extract();
+        }
+    });
 
-        scope = scope[className] = _.isFunction(callback) ? callback() : callback;
-
-        return scope;
-    };
+    _.extend(Module.prototype, {
+        constructor: Module
+    }, {
+        extract: function () {
+            return this.callback(Module.require);
+        }
+    });
 
     return Module;
 }));

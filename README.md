@@ -1,6 +1,3 @@
-[npm-badge]: https://badge.fury.io/js/backbone.module.png
-[npm-link]: https://badge.fury.io/js/backbone.module
-
 [travis-badge]: https://secure.travis-ci.org/DreamTheater/Backbone.Module.png
 [travis-link]: https://travis-ci.org/DreamTheater/Backbone.Module
 
@@ -9,49 +6,74 @@
 
 # Backbone.Module
 
-[![NPM Version][npm-badge]][npm-link]
 [![Build Status][travis-badge]][travis-link]
 [![Dependency Status][gemnasium-badge]][gemnasium-link]
 
-The utility which helps you define modules in the global scope.
+Simple module definition tool for Backbone projects.
 
 **Dependencies:**
 
   - [Backbone](https://github.com/documentcloud/backbone) `>= 1.1.0`
   - [Underscore](https://github.com/documentcloud/underscore) `>= 1.5.2`
 
+## Introduction
+This project was created to simplify development and assembly large projects. I implemented it as an alternative to asynchronous module definition. It doesn't use XHR or dependency management mechanism, they're just not needed anymore. The library has very small size and doesn't affect size of production code (about 2KB).
+
 ## Getting Started
-`Backbone.Module` is a simple helper that automatically resolves creation of nested scopes.
+### Modules definition
+You can use one of three available methods to define modules.
 
-### Define simple object
-You can easy define any variables, like this:
+Using static constructor.
 ```js
-Backbone.Module('foo.bar.object', { foo: 'bar' });
-```
-```js
-Backbone.Module('foo.bar.object', function () {
-    return { foo: 'bar' };
-});
+Backbone.Module(name, callback);
 ```
 
-Both of these statements are equal. They will create the object in the global scope: `window.foo.bar.object`.
-
-### Define Backbone's classes
-A little example how `Backbone.Modules` can be used together with Backbone's classes:
+Creating new instance of `Backbone.Module`.
 ```js
-Backbone.Module('org.app.Model', function () {
+new Backbone.Module(name, callback);
+```
+
+Using static method `define(name, callback)`.
+```js
+Backbone.Module.define(name, callback);
+```
+
+#### Examples
+Simple module without dependencies.
+```js
+Backbone.Module.define('org.app.Model', function () {
     return Backbone.Model;
 });
 ```
+
+More advanced module with dependencies.
 ```js
-Backbone.Module('org.app.Collection', function () {
+Backbone.Module.define('org.app.Collection', function (require) {
+    var Model = require('org.app.Model');
+
     return Backbone.Collection.extend({
-        model: org.app.Model
+        model: Model
     });
 });
 ```
 
+Actually don't care in which order you define these modules since you pass a callback functions. They will not be executed in moment of definition. That significantly simplifies build procedure of your project. You don't need to take care about concatenation order your scripts, or manage dependencies.
+
+Callback of `org.app.Model` will be called in moment of execution `require('org.app.Model')`.
+
+### Modules requirement
+You can get access to modules using static method `require(name)`.
+```js
+var Collection = Backbone.Module.require('org.app.Collection');
+```
+
+Callback of `org.app.Collection` will be called and you will get returned value.
+
 ## Changelog
+### 0.2.0
+  - Completely new plugin's design
+  - Dependency injection
+
 ### 0.1.8
   - Renaming project from `Backbone.Modules` to `Backbone.Module`
   - Function `Backbone.define` is now a class `Backbone.Module`
